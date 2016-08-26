@@ -3,7 +3,7 @@
 
 
 To get the sources, just click on the green **Clone or Download** button and download a zip file of this repository.
-Here’s how you do it the simplest way. You don’t need an IDE. Other than a new version of java, you probably don't need anything new at all.
+You don’t need an IDE. Other than a new version of java, you probably don't need anything new at all.
 
 -
 First, you may need to download an up-to-date java.  The version of java (that came with my Mac) was 1.6 and Processing 3 appears to need 1.8. Here's the link: 
