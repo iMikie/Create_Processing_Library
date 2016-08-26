@@ -1,10 +1,8 @@
 # Create_Processing_Library
-Create a library for Processing 3.0 (no need for an IDE)
+##How to create a library for Processing 3.0 (no need for an IDE)
 
-##How to create a Processing Library
 
 To get the sources, just click on the green **Clone or Download** button and download a zip file of this repository.
-
 Here’s how you do it the simplest way. You don’t need an IDE. Other than a new version of java, you probably don't need anything new at all.
 
 -
