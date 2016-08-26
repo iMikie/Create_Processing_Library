@@ -16,7 +16,7 @@ Inside sample create a file called SampleLibrary.java.  You can use Processing t
 
 This is the contents of SampleLibrary.java, it’s the simplest Library I could make:
 
-
+```java
 package sample;						//that’s what java calls a library
 import processing.core.*;				//so you can call processing built in routines 
 
@@ -36,27 +36,28 @@ public class SampleLibrary {
         // Probably won’t need this unless you create threads or allocated memory
     }
 }
-
+```
 
 Now you compile it:  On Mac we use the terminal.app.  It’s inside  /Applications/Utilities/.  On Windows use whatever you use for the command line.   
 
 Change directory into sample.  If you created sample in your main folder type this command: 
-	cd ~/sample
-
+```
+cd ~/sample
+```
 Execute the following command:
-
-	javac  -classpath /Applications/Processing.app/Contents/Java/core.jar -d . *.java
-
+```
+javac  -classpath /Applications/Processing.app/Contents/Java/core.jar -d . *.java
+```
 for windows it should be something like: 
-
-	javac  -classpath C:\Users\Mikie\Documents\processing-3.0\core\library\core.jar -d . *.java
-
+```
+javac  -classpath C:\Users\Mikie\Documents\processing-3.0\core\library\core.jar -d . *.java
+```
 Briefly, the -classpath option tells it where to find Processing’s code while the -d followed by a period and *.java says to compile all files ending in .java within the current folder. This will create a file SampleLibrary.class
 
 Now wrap it up in a jar file, type this into your terminal.app’s window:
-
-		jar cf sample.jar SampleLibrary.class
-
+```
+jar cf sample.jar SampleLibrary.class
+```
 Now inside your Documents/Processing/libraries folder create a sample folder.
 Inside sample create a folder called library.  Drag your jar file there.
 
@@ -64,6 +65,7 @@ So on Mac I have:  /Users/Mikie/Documents/Processing/libraries/sample/library/sa
 
 Now open up processing and create a sketch with this in it:
 
+```java
 import sample.*;
 
 SampleLibrary sampleObj;
@@ -84,7 +86,7 @@ void draw() {
   sampleObj.printsample();
   // text(sampleObj.printsample(), 40, 200);
 }
-
+```
 This is your test sketch.
 
 Now in processing, under the menu Sketch, select add file and find your sample.jar file.
