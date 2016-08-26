@@ -1,10 +1,11 @@
 # Create_Processing_Library
 Create a library for Processing 3.0 (no need for an IDE)
 
-How to create a Processing Library
+##How to create a Processing Library
+To get the sources, just click on the green **Clone or Download** button and download a zip file of this repository.
 
-You don’t need an IDE.  I tried to use my favorite IDE, IntelliJ but it just got too complicated.  Here’s how you do it the simplest way. 
-
+Here’s how you do it the simplest way. You don’t need an IDE. Other than a new version of java, you probably don't need anything new at all.
+-
 First, you may need to download an up-to-date java.  The version of java (that came with my Mac) was 1.6 and Processing 3 appears to need 1.8. Here's the link: 
        http://www.oracle.com/technetwork/java/javase/downloads/index.html
 when you get there, click on the large Java DOWNLOAD icon and select the download for your platform, and install.
