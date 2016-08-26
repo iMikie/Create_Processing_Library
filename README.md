@@ -93,7 +93,6 @@ void draw() {
   // text(sampleObj.printsample(), 40, 200);
 }
 ```
-This is your test sketch.
 
 Now in processing, under the menu **Sketch**, select **add file** and find your *sample.jar* file.
 
