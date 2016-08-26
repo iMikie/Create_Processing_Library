@@ -6,7 +6,9 @@ To get the sources for this repository, just click on the green **Clone or Downl
 You don’t need an IDE. Other than a new version of java, you probably don't need anything new at all.
 
 -
-First, you may need to download an up-to-date java.  The version of java (that came with my Mac) was 1.6 and Processing 3 appears to need 1.8. Do PC's come with java?  No matter, Here's the link: 
+
+###Java is up-to-date?
+You may need to download an up-to-date java.  The version of java (that came with my Mac) was 1.6 and Processing 3 appears to need 1.8. Do PC's come with a java SKD?  No matter, Here's the link: 
 
 [Get an up-to-date Java SDK here](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
