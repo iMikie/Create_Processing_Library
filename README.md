@@ -6,7 +6,7 @@ To get the sources, just click on the green **Clone or Download** button and dow
 You don’t need an IDE. Other than a new version of java, you probably don't need anything new at all.
 
 -
-First, you may need to download an up-to-date java.  The version of java (that came with my Mac) was 1.6 and Processing 3 appears to need 1.8. Here's the link: 
+First, you may need to download an up-to-date java.  The version of java (that came with my Mac) was 1.6 and Processing 3 appears to need 1.8. Do PC's come with java?  No matter, Here's the link: 
        http://www.oracle.com/technetwork/java/javase/downloads/index.html
 when you get there, click on the large Java DOWNLOAD icon and select the download for your platform, and install.
 
