@@ -22,7 +22,7 @@ On the Mac this is in your Documents folder:
 ```
 Documents/Processing/libraries/multiport
 ```
-On PC this is 
+On PC this is: 
 ```
 My Documents\Processing\librairies
 ```
@@ -31,68 +31,74 @@ Now open Processing and create a new sketch, name it *library* and save it insid
 
 Inside *Processing/libraries/samplelibrary/*  you will now have:
 ```
-library.pde                  //I use this as my test file
-SampleLibrary.java              //your library source must have the .java file extension
+library.pde                     //I use this as the test file
+SampleLibrary.java              //Your library source must have the .java file extension
 ```
 
-Inside *sample* create a file called *SampleLibrary.java*.  You can use Processing to create the file with the name *SampleLibrary/java* but it can't be the first tab.  You can create a sketch called SampleLibrary.pde and then go into your Finder or Windows Explorer and change the name to *SampleLibrary.java*.  
 
 ###Simpliest Library 
-This is the contents of *SampleLibrary.java*, it’s the simplest Library I could make:
+Now cut and paste the following into the SampleLibrary.java tab:
 
 ```java
-package sample;						//that’s what java calls a library
-import processing.core.*;				//so you can call processing built in routines 
+package samplelibrary;
+import processing.core.*;
 
 public class SampleLibrary {
-    PApplet parent;
+  PApplet parent;
 
-    public SampleLibrary(PApplet parent) {              //note: the parent is actually your sketch, Processing itself!
-        this.parent = parent;                           
-        parent.registerMethod("dispose", this);
-    }
+  public SampleLibrary(PApplet parent) {              //note passing the parent routines
+    this.parent = parent;                           //the parent is actually Processing itself!
+    parent.registerMethod("dispose", this);
+  }
 
-    public void printsample() {                         //just a sample method you can call
-        parent.println("the library is printing.");
-    }
+  public void printsample() {                         //just a sample method you can call
+    parent.println("the library is printing.");
+  }
 
-    public void dispose() {
-        // Probably won’t need this unless you create threads or allocated memory
-    }
+  public void dispose() {
+    // Anything in here will be called automatically when
+    // the parent sketch shuts down. For instance, this might
+    // shut down a thread used by this library.
+  }
 }
 ```
+ Note that the constructor takes a parameter of **PApplet parent**.  When you call this constructor you pass **this**.
+ From your main sketch tab, *this* is actually Processing itself.  By passing *this* you can now access
+ Processing's built in functions like we do with println.
+ 
 ###Compile
 Now you compile it:  On Mac we use the **terminal.app**.  It’s inside  **/Applications/Utilities/**.  On Windows use whatever you use for the command line.   
 
-Change directory into sample.  If you created **sample** in your main folder type this command: 
-```
-cd ~/sample
-```
-Execute the following command:
-```
-javac  -classpath /Applications/Processing.app/Contents/Java/core.jar -d . *.java
-```
-for windows it should be something like: 
-```
-javac  -classpath C:\Users\Mikie\Documents\processing-3.0\core\library\core.jar -d . *.java
-```
-Briefly, the -classpath option tells it where to find Processing’s code while the -d followed by a period and *.java says to compile all files ending in .java within the current folder. This will create a file **SampleLibrary.class**
 
-###Make a Jar
-Now wrap it up in a jar file, type this into your terminal.app’s window:
-```
-jar cf sample.jar SampleLibrary.class
-```
-Now inside your *Documents/Processing/libraries* folder create a *sample* folder.
-Inside *sample* create a folder called *library*.  Drag your jar file there.
 
-So on Mac I have:  */Users/Mikie/Documents/Processing/libraries/sample/library/sample.jar*
+From the terminal.app or its Windows equivalent, go to folder *Processing/libraries/samplelibrary/library/* and cut and paste this command:
+For Mac:
+```
+ javac  -classpath "/Applications/Processing.app/Contents/Java/core.jar" -d . *.java
+ ```
+For Windows it's probably pretty close to this (change "YourUserName" obviously):
+```
+javac  -classpath C:\Users\YourUserName\Documents\processing-3.0\core\library\core.jar -d . *.java
+```
+The -classpath tells the java compiler *javac* where to find the *core.jar* file.  That file is necessary because your samplelibrary.java file contains a line 
+```
+import processing.core.*;
+```
+and *processing.core* is in core.jar. The -d followed by a period and *.java says to compile all files ending in .java within the current folder and create folders for each java package. So in our case, this will create a file **SampleLibrary.class**.
 
-###Create your test Sketch
+
+```
+jar cf samplelibrary.jar samplelibrary
+```
+
+
+This will create your samplelibrary.jar file.   *Processing/libraries/sample/library/samplelibrary.jar*
+
+###Now let's test the library 
 Now open up processing and create a sketch with this in it:
 
 ```java
-import sample.*;
+import samplelibrary.*;
 
 SampleLibrary sampleObj;
 
@@ -110,14 +116,31 @@ void draw() {
   background(0);
   fill(255);
   sampleObj.printsample();
-  // text(sampleObj.printsample(), 40, 200);
 }
 ```
+This simply calls the samplelibrary's **printsample()** function during loop.
 
-Now in processing, under the menu **Sketch**, select **add file** and find your *sample.jar* file.
+Back in Processing, select menu item **Sketch/add file...** and find your file **samplelibrary.jar**
+Then quit Processing so it can reload it's libraries. Open up your library.pde sketch again and select menu **Sketch/Import Library...**  and now **samplelibrary** will show up. Go ahead and select it
+Your sketch.pde will get a new line at the top: *
+```
+import samplelibrary.*
+```
+You can run your sketch and you will see "the library is printing"
 
-Your sketch will now run.
 
+###Note: 
+ Note that SampleLibrary's  constructor takes a parameter of **PApplet parent**.  When you call this constructor you pass *this*.
+ From your main sketch tab, *this* is actually Processing itself.  By passing *this* you can now access
+ Processing's built in functions and we do this with *println*.
+ 
+###Advanced Note: 
+If you use Processing's Serial class inside your library use this javac command instead:
+```
+javac  -classpath "/Applications/Processing.app/Contents/Java/core.jar:/Applications/Processing.app/Contents/Java/modes/java/libraries/serial/library/*" -d . *.java
+```
+
+This will import *serial.jar* and *jssc.jar* inside that second long path
 If you want to do more, look at 
     https://github.com/processing/processing/wiki/Library-Basics
 
