@@ -29,7 +29,7 @@ My Documents\Processing\librairies
 I'll just call it *Processing/libraries* from now on.
 Now open Processing and create a new sketch, name it *library* and save it inside the *Processing/libraries/samplelibrary* folder you just made.  In your sketch, create a new tab and call it *SampleLibrary.java*
 
-Inside *Processing/libraries/samplelibrary/*  you will now have:
+Inside *Processing/libraries/samplelibrary/library*  you will now have:
 ```
 library.pde                     //I use this as the test file
 SampleLibrary.java              //Your library source must have the .java file extension
