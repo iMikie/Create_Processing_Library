@@ -15,7 +15,7 @@ You may need to download an up-to-date java.  The version of java that came with
 
 When you get there, click on the large **Java DOWNLOAD** icon and select the download for your platform, and install.
 
-###Create A folder for your library
+###Create a folder for your library
 Create the folder "samplelibrary" inside Processing's local libraries folder;
 
 On the Mac this is in your Documents folder:
@@ -116,7 +116,7 @@ This simply calls the samplelibrary's **printsample()** function during loop.
 
 ###Load your new library into your processing sketch.
 Back in Processing, select menu item **Sketch/add file...** and find your file **samplelibrary.jar**
-Then quit Processing so it can reload it's libraries. Open up your library.pde sketch again and select menu **Sketch/Import Library...**  and now **samplelibrary** will show up. Go ahead and select it
+Then quit Processing so it can reload it's libraries. Open up your library.pde sketch again and select menu **Sketch/Import Library...**  and now **samplelibrary** will show up. Go ahead and select it.
 Your **sketch.pde** will get a new line at the top: 
 ```
 import samplelibrary.*
@@ -125,12 +125,12 @@ You can run your sketch and you will see "the library is printing" in the consol
 
 ==
 ###Note: 
- Note that SampleLibrary's  constructor takes a parameter of **PApplet parent**.  When you call this constructor you pass *this*.
+ This is important to repeat: SampleLibrary's constructor takes a parameter of **PApplet parent**.  When you call this constructor you pass *this*.
  From your main sketch tab, *this* is actually Processing itself.  By passing *this* you can now access
- Processing's built in functions and we do this with *println*.
+ Processing's built in functions as we do this with *println* inside *sampleprint*.
  
-###Advanced Note: 
-If you use Processing's Serial class inside your library use this javac command instead:
+###Advanced Notes: 
+If you use Processing's Serial library inside your library use this javac command instead:
 ```
 javac  -classpath "/Applications/Processing.app/Contents/Java/core.jar:/Applications/Processing.app/Contents/Java/modes/java/libraries/serial/library/*" -d . *.java
 ```
@@ -139,9 +139,17 @@ To use Serial you need
 ```
 import processing.serial.*;
 ```
-The processing.serial library relies on *serial.jar* and *jssc.jar* which are found at that second really long path in the -classpath arguement.  
+The processing.serial library relies on *serial.jar* and *jssc.jar* which are found at that second really long path in the -classpath arguement.  In general, if you use an import command at the top of your file, *javac* needs to be able to find it.  If it's not in your immediate directory then you have to add it to the -classpath argument to *javac*.  You separate different locations with colon *:*.
 
-You can define more than one class in a library but only one can be public, the one whose name is on the .java file.  You can have multiple packages (each defined in its own .java file inside the library folder) in a Processing library.  If you want to do more, look at 
+You can define more than one class in a library but only one can be public, the one whose name is on the .java file.  For the others, just remove the *public* from before *class* and from before the constructor.  You can't call these from outside the library but you can use them inside.  A *.class* file will be created for each when you compile.  
+
+You can also have multiple packages (each defined in its own .java file inside the library folder) in a Processing library.  Whenever one class needs to call another put an 
+```
+import myotherpackage.*
+```
+When you do the *javac*, one folder for each package will be created.
+
+If you want to do more, look at 
     https://github.com/processing/processing/wiki/Library-Basics
 
 There’s lots more info there.
