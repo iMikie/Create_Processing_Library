@@ -3,7 +3,8 @@
 
 
 To get the sources for this repository, just click on the green **Clone or Download** button and download a zip file of this repository.
-You don’t need an IDE. Other than a new version of java, you probably don't need anything new at all.
+You don’t need an IDE. Other than a new version of java, you probably don't need anything new at all. You do need to know how
+to enter commands via commandline.  If you don’t know how to use the command line, then google "Just enough command line" and read that book,  you'll need it.
 
 -
 
@@ -14,8 +15,25 @@ You may need to download an up-to-date java.  The version of java (that came wit
 
 When you get there, click on the large **Java DOWNLOAD** icon and select the download for your platform, and install.
 
-###Create a folder
-Create a folder wherever you want, call it *sample*.  If you don’t know how to use the command line, then go to your home folder.  For example, on Mac, mine is Mikie which is my user name.  You can create *sample* there. Since I know how to use the command line I went to my *Documents/Processing* folder and created the *sample* folder there.
+###Create A folder for your library
+Create the folder "samplelibrary" inside Processing's local libraries folder;
+
+On the Mac this is in your Documents folder:
+```
+Documents/Processing/libraries/multiport
+```
+On PC this is 
+```
+My Documents\Processing\librairies
+```
+I'll just call it Processing/libraries from now on.
+Now open Processing and create a new sketch, name it *library* and save it inside the *Processing/libraries/samplelibrary* folder you just made.  In your sketch, create a new tab and call it *SampleLibrary.java*
+
+Inside *Processing/libraries/samplelibrary/*  you will now have:
+```
+library.pde                  //I use this as my test file
+SampleLibrary.java              //your library source must have the .java file extension
+```
 
 Inside *sample* create a file called *SampleLibrary.java*.  You can use Processing to create the file with the name *SampleLibrary/java* but it can't be the first tab.  You can create a sketch called SampleLibrary.pde and then go into your Finder or Windows Explorer and change the name to *SampleLibrary.java*.  
 
