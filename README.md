@@ -26,7 +26,7 @@ On PC this is:
 ```
 My Documents\Processing\librairies
 ```
-I'll just call it Processing/libraries from now on.
+I'll just call it *Processing/libraries* from now on.
 Now open Processing and create a new sketch, name it *library* and save it inside the *Processing/libraries/samplelibrary* folder you just made.  In your sketch, create a new tab and call it *SampleLibrary.java*
 
 Inside *Processing/libraries/samplelibrary/*  you will now have:
@@ -34,10 +34,8 @@ Inside *Processing/libraries/samplelibrary/*  you will now have:
 library.pde                     //I use this as the test file
 SampleLibrary.java              //Your library source must have the .java file extension
 ```
-
-
 ###Simpliest Library 
-Now cut and paste the following into the SampleLibrary.java tab:
+Now cut and paste the following into the **SampleLibrary.java** tab:
 
 ```java
 package samplelibrary;
@@ -69,9 +67,7 @@ public class SampleLibrary {
 ###Compile
 Now you compile it:  On Mac we use the **terminal.app**.  It’s inside  **/Applications/Utilities/**.  On Windows use whatever you use for the command line.   
 
-
-
-From the terminal.app or its Windows equivalent, go to folder *Processing/libraries/samplelibrary/library/* and cut and paste this command:
+From the terminal.app or its Windows equivalent, navigate to your library folder, *Processing/libraries/samplelibrary/library/* and cut and paste this command:
 For Mac:
 ```
  javac  -classpath "/Applications/Processing.app/Contents/Java/core.jar" -d . *.java
@@ -80,19 +76,17 @@ For Windows it's probably pretty close to this (change "YourUserName" obviously)
 ```
 javac  -classpath C:\Users\YourUserName\Documents\processing-3.0\core\library\core.jar -d . *.java
 ```
-The -classpath tells the java compiler *javac* where to find the *core.jar* file.  That file is necessary because your samplelibrary.java file contains a line 
+The -classpath tells the java compiler *javac* where to find the **core.jar** file.  That file is necessary because your **samplelibrary.java** file contains a line 
 ```
 import processing.core.*;
 ```
-and *processing.core* is in core.jar. The -d followed by a period and *.java says to compile all files ending in .java within the current folder and create folders for each java package. So in our case, this will create a file **SampleLibrary.class**.
+and **processing.core** is in **core.jar**. The -d followed by a period and \*.java says to compile all files ending in .java within the current folder and create folders for each java package. So in our case, this will create a file **SampleLibrary.class**.
 
-
+Now type in this command:
 ```
 jar cf samplelibrary.jar samplelibrary
 ```
-
-
-This will create your samplelibrary.jar file.   *Processing/libraries/sample/library/samplelibrary.jar*
+This will create your **samplelibrary.jar** file.   *Processing/libraries/sample/library/samplelibrary.jar*
 
 ###Now let's test the library 
 Now open up processing and create a sketch with this in it:
@@ -120,13 +114,14 @@ void draw() {
 ```
 This simply calls the samplelibrary's **printsample()** function during loop.
 
+###Load your new library into your processing sketch.
 Back in Processing, select menu item **Sketch/add file...** and find your file **samplelibrary.jar**
 Then quit Processing so it can reload it's libraries. Open up your library.pde sketch again and select menu **Sketch/Import Library...**  and now **samplelibrary** will show up. Go ahead and select it
-Your sketch.pde will get a new line at the top: *
+Your **sketch.pde** will get a new line at the top: 
 ```
 import samplelibrary.*
 ```
-You can run your sketch and you will see "the library is printing"
+You can run your sketch and you will see "the library is printing" in the console window.
 
 
 ###Note: 
