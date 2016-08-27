@@ -9,7 +9,7 @@ to enter commands via commandline.  If you don’t know how to use the command l
 -
 
 ###Updating Java
-You may need to download an up-to-date java.  The version of java (that came with my Mac) was 1.6 and Processing 3 appears to need 1.8. Do PC's come with a java SKD?  No matter, Here's the link: 
+You may need to download an up-to-date java.  The version of java that came with my Mac was 1.6 and Processing 3 appears to need 1.8. Do PC's come with a java SKD?  No matter, Here's the link: 
 
 [Get an up-to-date Java SDK here](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -60,9 +60,9 @@ public class SampleLibrary {
   }
 }
 ```
- Note that the constructor takes a parameter of **PApplet parent**.  When you call this constructor you pass **this**.
+ Important to note:  the constructor takes a parameter of **PApplet parent**.  When you call this constructor you pass **this**.
  From your main sketch tab, *this* is actually Processing itself.  By passing *this* you can now access
- Processing's built in functions like we do with println.
+ Processing's built in functions like we do with **this.println()** in the method **printsample()**. Note also that both the class and the constructor are indicated *public*.  If you don't do that you can call them from outside the library.  That took an hour for me to figure out.
  
 ###Compile
 Now you compile it:  On Mac we use the **terminal.app**.  It’s inside  **/Applications/Utilities/**.  On Windows use whatever you use for the command line.   
@@ -80,13 +80,13 @@ The -classpath tells the java compiler *javac* where to find the **core.jar** fi
 ```
 import processing.core.*;
 ```
-and **processing.core** is in **core.jar**. The -d followed by a period and \*.java says to compile all files ending in .java within the current folder and create folders for each java package. So in our case, this will create a file **SampleLibrary.class**.
+and **processing.core** is in **core.jar**. The -d followed by a period and \*.java says to compile all files ending in .java within the current folder and create folders for each java package. We are creating just one package, this command creates a folder *samplelibrary* inside *library* and this new folder contains a file **SampleLibrary.class**. Yes, the folder *library* is inside a folder called *samplelibrary* and contains a folder called *samplelibrary*.
 
 Now type in this command:
 ```
 jar cf samplelibrary.jar samplelibrary
 ```
-This will create your **samplelibrary.jar** file.   *Processing/libraries/sample/library/samplelibrary.jar*
+This will create your **samplelibrary.jar** file from the SampleLibrary class (and anything else in more complicated examples) inside the innermost samplelibrary. We get:  *Processing/libraries/sample/library/samplelibrary.jar*
 
 ###Now let's test the library 
 Now add this to the *library* tab in your sketch: 
