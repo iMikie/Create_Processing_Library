@@ -34,7 +34,7 @@ Inside *Processing/libraries/samplelibrary/library*  you will now have:
 library.pde                     //I use this as the test file
 SampleLibrary.java              //Your library source must have the .java file extension
 ```
-###Simpliest Library 
+###Simplest Library 
 Now cut and paste the following into the **SampleLibrary.java** tab:
 
 ```java
