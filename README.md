@@ -20,7 +20,7 @@ Create the folder "samplelibrary" inside Processing's local libraries folder;
 
 On the Mac this is in your Documents folder:
 ```
-Documents/Processing/libraries/multiport
+Documents/Processing/libraries
 ```
 On PC this is: 
 ```
