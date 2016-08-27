@@ -135,8 +135,13 @@ If you use Processing's Serial class inside your library use this javac command 
 javac  -classpath "/Applications/Processing.app/Contents/Java/core.jar:/Applications/Processing.app/Contents/Java/modes/java/libraries/serial/library/*" -d . *.java
 ```
 
-This will import *serial.jar* and *jssc.jar* inside that second long path
-If you want to do more, look at 
+To use Serial you need 
+```
+import processing.serial.*;
+```
+The processing.serial library relies on *serial.jar* and *jssc.jar* which are found at that second really long path in the -classpath arguement.  
+
+You can define more than one class in a library:  only one, the one whose name is on the .java file can be public, though.  You can have multiple packages (each defined in its own .java file) in a library.  If you want to do more, look at 
     https://github.com/processing/processing/wiki/Library-Basics
 
 There’s lots more info there.
