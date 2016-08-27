@@ -141,7 +141,7 @@ import processing.serial.*;
 ```
 The processing.serial library relies on *serial.jar* and *jssc.jar* which are found at that second really long path in the -classpath arguement.  
 
-You can define more than one class in a library:  only one, the one whose name is on the .java file can be public, though.  You can have multiple packages (each defined in its own .java file) in a library.  If you want to do more, look at 
+You can define more than one class in a library but only one can be public, the one whose name is on the .java file.  You can have multiple packages (each defined in its own .java file inside the library folder) in a Processing library.  If you want to do more, look at 
     https://github.com/processing/processing/wiki/Library-Basics
 
 There’s lots more info there.
