@@ -89,7 +89,7 @@ jar cf samplelibrary.jar samplelibrary
 This will create your **samplelibrary.jar** file.   *Processing/libraries/sample/library/samplelibrary.jar*
 
 ###Now let's test the library 
-Now open up processing and create a sketch with this in it:
+Now add this to the *library* tab in your sketch: 
 
 ```java
 import samplelibrary.*;
